@@ -39,8 +39,8 @@ class NN:
         bs = self.biases
         D_stack = []
 
-        #TODO 4: Implement forward pass to get Yhat and intermediate results for BackProp (which is similar to self.predit).         
-        #Append intermediate results in D_stack for backpropagation
+        #TODO 4: Implement forward pass to get Yhat (which is similar to self.predit) 
+        # and append intermediate results in D_stack for backpropagation
 
         Yhat = np.matmul(ws[-1], D) + bs[-1]
         training_loss = self.loss_function.loss(Y, Yhat)
