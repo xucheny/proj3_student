@@ -63,7 +63,7 @@ class SoftmaxRegression:
                                                     # probabilities that example b is class a using the
                                                     # softmax formula.
         
-        W_X = W_X - np.max(W_X)                     # WU
+        W_X = W_X - np.max(W_X)
 
         # This is the indicator function used in the loss function, where indicator[a, b] = 1
         # when example b is labeled a (according to the target Y) and indicator[a, b] = 0 otherwise.
@@ -96,11 +96,6 @@ class SoftmaxRegression:
         # gradient = util.raiseNotDefined()
 
         # ### YOUR CODE HERE ###
-
-        # answer from tutorial:
-        probabilities = np.exp(W_X) / np.sum(np.exp(W_X), axis=0)
-        cost = (-1 / N) * np.sum(indicator * np.log(probabilities))
-        gradient = (-1 / N) * (indicator - probabilities).dot(X.transpose())
 
         # flatten is needed by scipy.optimize.minimize
         return cost, gradient.flatten()
@@ -153,9 +148,5 @@ class SoftmaxRegression:
         # predicted_classes = util.raiseNotDefined()
 
         # ### YOUR CODE (ENDS) HERE ###
-
-        # answer from tutorial:
-        probabilities = np.exp(W_X) / np.sum(np.exp(W_X), axis=0)
-        predicted_classes = probabilities.argmax(axis=0)
 
         return predicted_classes
