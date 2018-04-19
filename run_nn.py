@@ -64,5 +64,5 @@ if __name__ == "__main__":
     #model, plot_dict = train_1pass(model, training_data, dev_data, lr, batch_size)
     #save_plot(plot_dict["num_samples"], plot_dict["losses"]) 
 
-    # Q3
+    # Qnn2
     model = train(model, training_data, dev_data, lr, batch_size, max_epoch)

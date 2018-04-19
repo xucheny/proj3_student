@@ -30,7 +30,7 @@ class NN:
         bs = self.biases
         for w,b in zip(ws[:-1], bs[:-1]):
             D = self.activation_function.activate(np.matmul(w,D)+b) 
-            # Be careful of the broadcasting here: (d,N) + (d,1) -> (d,N) while (d,) + (d,1) -> (d,d), which is wrong
+            # Be careful of the broadcasting here: (d,N) + (d,1) -> (d,N).
         Yhat = np.matmul(ws[-1], D)+bs[-1]
         return np.argmax(Yhat, axis=0)
 
@@ -39,10 +39,10 @@ class NN:
         bs = self.biases
         D_stack = []
 
-        #TODO 4: Implement forward pass to get Yhat and intermediate results for BackProp (which is similar to self.predit).         #Store intermediate results in D_stack for backpropagation
+        #TODO 4: Implement forward pass to get Yhat and intermediate results for BackProp (which is similar to self.predit).         
+        #Append intermediate results in D_stack for backpropagation
 
         Yhat = np.matmul(ws[-1], D) + bs[-1]
-
         training_loss = self.loss_function.loss(Y, Yhat)
         '''
         '''
