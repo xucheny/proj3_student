@@ -1,0 +1,30 @@
+0. Softmax Regression
+
+Files to edit/turn in:
+	softmax.py
+	report.pdf
+	partners.txt
+
+The goal of this part of the project is to implement a two-layer
+neural network to classify the MNIST handwritten digits dataset. We will do this using the Softmax cost function, which is a multiclass generalization of the logistic cost function. 
+
+(See http://ufldl.stanford.edu/tutorial/supervised/SoftmaxRegression/ for more details)
+
+A code stub has been provided in run_softmax.py. Once you correctly implement softmax.py, you will be able to run run_softmax.py in order to classify the digits.
+
+TODO:
+	-Cost function and Gradient
+	-Predict function
+
+Q1: When initializing the weight matrix, in some cases it may be appropriate to initialize the entries as small random numbers rather than all zeros. Give one reason why this may be a good idea.
+
+Q2: In the cost function, we see the line
+		W_X = W_X - np.max(W_X)
+	
+	This means that each entry is reduced by the largest entry in the matrix.
+		-Show that this does not affect the predicted probabilities.
+		-Why might this be an optimization over using W_X?
+
+Q3: Use the learningCurve function in runClassifier.py to plot the accuracy of the classifier as a function of the number of examples seen. Do you observe overfitting or underfitting? Justify.
+
+Q4: Use the hyperparamCurve function to plot the accuracy of the classifier as a function of the number of iterations for the following set of values: {} What value of maxIter gives the best accuracy?
