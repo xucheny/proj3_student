@@ -128,7 +128,6 @@ def drawDigits(X,Y):
     if i >= len(order):
       break
     subplot(8, 8, i+1)
-    print(X[order[i],:].reshape(28,28).shape)
     imshow(-X[order[i],:].reshape(28,28).T, cmap=cm.gist_gray)
     text(0,6,str(Y[order[i]]),color='blue')
     axis('off')
@@ -154,7 +153,3 @@ def normalizeLog(a):
   for v in a:
     s = addLog(s, v)
   return exp(a - s)
-
-
-
-
