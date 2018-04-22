@@ -1,0 +1,48 @@
+>>> python run_softmax.py
+
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =         7840     M =           10
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  2.30259D+00    |proj g|=  6.37317D-02
+
+At iterate    1    f=  1.52910D+00    |proj g|=  6.91122D-02
+
+At iterate    2    f=  7.72038D-01    |proj g|=  4.43378D-02
+
+...
+
+At iterate  401    f=  2.19686D-01    |proj g|=  2.52336D-04
+
+At iterate  402    f=  2.19665D-01    |proj g|=  2.04576D-04
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+ 7840    402    431      1     0     0   2.046D-04   2.197D-01
+  F =  0.21966482316858085     
+
+STOP: TOTAL NO. of ITERATIONS EXCEEDS LIMIT                 
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 0.000E+00 seconds.
+
+ Total User time 0.000E+00 seconds.
+
+Accuracy: 93.99%
