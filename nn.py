@@ -39,19 +39,41 @@ class NN:
         bs = self.biases
         D_stack = []
 
-        #TODO 4: Implement forward pass to get Yhat (which is similar to self.predit) 
-        # and append intermediate results in D_stack for backpropagation
+        D = X
+        D_stack.append(D)
+        num_layers = len(ws)
+        for idx in range(num_layers-1):
+            #TODO 4: Implement forward pass to get Yhat (which is similar to self.predit) 
+            # Only one line here to calculate D
+            raise NotImplementedError("Calculate D")
+            D_stack.append(D)
 
         Yhat = np.matmul(ws[-1], D) + bs[-1]
         training_loss = self.loss_function.loss(Y, Yhat)
         '''
         '''
-        grad_b = []
-        grad_W = []
-        # TODO 5: Calculate grad_b and grad_W, which are lists of gradients for b's and w's of each layer. 
-        # Take a look at the update step if you are not sure about the format.
+        grad_bs = []
+        grad_Ws = []
 
-        return training_loss, grad_W, grad_b
+        grad = self.loss_function.lossGradient(Y,Yhat)
+        grad_b = np.sum(grad, axis=1, keepdims=1)
+        grad_W = np.matmul(grad, D_stack[num_layers-1].transpose())
+        grad_bs.append(grad_b)
+        grad_Ws.append(grad_W)
+        for idx in range(num_layers-2, -1, -1):
+            # TODO 5: Calculate grad_b and grad_W, which are lists of gradients for b's and w's of each layer. 
+            # Take a look at the update step if you are not sure about the format.
+            #1. Iteratively update grad
+            raise NotImplementedError("Update grad")
+            #2. Calculate grad_b (gradient of b of the current layer)
+            raise NotImplementedError("Calculate grad_b")
+            #3. Calculate grad_W (gradient of W of the current layer)
+            raise NotImplementedError("Calculate grad_W")
+            grad_bs.append(grad_b)
+            grad_Ws.append(grad_W)
+
+        grad_bs, grad_Ws = grad_bs[::-1], grad_Ws[::-1] # Reverse the gradient lists
+        return training_loss, grad_Ws, grad_bs
 
     def update(self, grad_W, grad_b, learning_rate):
         # Update the weights and biases
