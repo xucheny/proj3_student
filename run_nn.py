@@ -55,8 +55,8 @@ if __name__ == "__main__":
     model = NN(Linear(), SquaredLoss(), hidden_layers=[128], input_d=784, output_d=10)
     model.print_model()
 
-    lr = 1e-2
-    max_epoch = 50
+    lr = 1e-3
+    max_epoch = 10
     batch_size = 64
     training_data = {"X":x_train, "Y":y_train}
     dev_data = {"X":x_test, "Y":y_test}

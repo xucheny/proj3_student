@@ -2,7 +2,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-def loadMNIST(train, test):
+def loadMNIST(filename1, filename2):
     """
     returns a 28x28x[number of MNIST images] matrix containing
     the raw MNIST images
