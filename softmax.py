@@ -89,13 +89,13 @@ class SoftmaxRegression:
         # the desired dimensions. Find the AVERAGE gradient over all the examples. Again, there is
         # an easy way to do this with the indicator matrix.
 
-        # ### YOUR CODE HERE ###
+        ### YOUR CODE HERE ###
 
-        # probabilities = util.raiseNotDefined()
-        # cost = util.raiseNotDefined()
-        # gradient = util.raiseNotDefined()
+        probabilities = utils.raiseNotDefined()
+        cost = utils.raiseNotDefined()
+        gradient = utils.raiseNotDefined()
 
-        # ### YOUR CODE HERE ###
+        ### YOUR CODE HERE ###
 
         # flatten is needed by scipy.optimize.minimize
         return cost, gradient.flatten()
@@ -142,11 +142,11 @@ class SoftmaxRegression:
         # TODO: Compute the predicted probabilities and the predicted classes for each example
         # Reminder: The predicted class for a single example is just the one with the highest probability
 
-        # ### YOUR CODE HERE ###
+        ### YOUR CODE HERE ###
 
-        # probabilities = util.raiseNotDefined()
-        # predicted_classes = util.raiseNotDefined()
+        probabilities = utils.raiseNotDefined()
+        predicted_classes = utils.raiseNotDefined()
 
-        # ### YOUR CODE (ENDS) HERE ###
+        ### YOUR CODE (ENDS) HERE ###
 
         return predicted_classes

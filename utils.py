@@ -2,14 +2,14 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-def loadMNIST(filename1, filename2):
+def loadMNIST(image_file, label_file):
     """
     returns a 28x28x[number of MNIST images] matrix containing
     the raw MNIST images
     :param filename: input data file
     """
 
-    with open(filename1, "r") as f:
+    with open(image_file, "r") as f:
         magic = np.fromfile(f, dtype=np.dtype('>i4'), count=1)
 
         num_images = np.fromfile(f, dtype=np.dtype('>i4'), count=1)[0]
@@ -23,7 +23,7 @@ def loadMNIST(filename1, filename2):
 
         f.close()
 
-    with open(filename2, 'r') as f:
+    with open(label_file, 'r') as f:
         magic = np.fromfile(f, dtype=np.dtype('>i4'), count=1)
 
         num_labels = np.fromfile(f, dtype=np.dtype('>i4'), count=1)
@@ -70,3 +70,8 @@ def save_plot(X, Y, pdf_name='learningcurve'):
     fig, ax = plt.subplots()
     plt.plot(X, Y)
     plt.savefig(pdf_name+'.pdf')
+
+def raiseNotDefined():
+  print("Method not implemented: %s" % inspect.stack()[1][3])
+  sys.exit(1)
+

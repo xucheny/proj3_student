@@ -12,7 +12,7 @@ reg = 0.0001
 
 
 X, Y = loadMNIST('data/train-images.idx3-ubyte', 'data/train-labels.idx1-ubyte')
-sm = SoftmaxRegression(numClasses, exSize, reg, {})
+sm = SoftmaxRegression(numClasses, exSize)
 sm.train(X, Y)
 
 testX, testY = loadMNIST('data/t10k-images.idx3-ubyte', 'data/t10k-labels.idx1-ubyte')
