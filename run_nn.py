@@ -9,8 +9,8 @@ def train(model, training_data, dev_data, learning_rate, batch_size, max_epoch):
     X_dev, Y_dev = dev_data['X'], dev_data['Y']
     for i in range(max_epoch):
         for X,Y in data_loader(X_train, Y_train, batch_size=batch_size, shuffle=True):
-            training_loss, grad_W, grad_b = model.compute_gradients(X, Y)
-            model.update(grad_W, grad_b, learning_rate)
+            training_loss, grad_Ws, grad_bs = model.compute_gradients(X, Y)
+            model.update(grad_Ws, grad_bs, learning_rate)
         dev_acc = acc(model.predict(X_dev), Y_dev)
         print("Epoch {: >3d}/{}\tloss:{:.5f}\tdev_acc:{:.5f}".format(i+1,max_epoch,training_loss, dev_acc))
     return model
@@ -27,8 +27,8 @@ def train_1pass(model, training_data, dev_data, learning_rate, batch_size, print
     plot_losses = []
     plot_num_samples = []
     for idx, (X,Y) in enumerate(data_loader(X_train, Y_train, batch_size=batch_size, shuffle=True),1):
-        training_loss, grad_W, grad_b = model.compute_gradients(X, Y)
-        model.update(grad_W, grad_b, learning_rate)
+        training_loss, grad_Ws, grad_bs = model.compute_gradients(X, Y)
+        model.update(grad_Ws, grad_bs, learning_rate)
         num_samples += Y.shape[1]
         print_loss_total += training_loss
         plot_loss_total += training_loss

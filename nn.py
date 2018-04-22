@@ -44,7 +44,7 @@ class NN:
         num_layers = len(ws)
         for idx in range(num_layers-1):
             #TODO 4: Implement forward pass to get Yhat (which is similar to self.predit) 
-            # Only one line here to calculate D
+            # Calculate D, which can be done in one line
             raise NotImplementedError("Calculate D")
             D_stack.append(D)
 
@@ -61,7 +61,7 @@ class NN:
         grad_bs.append(grad_b)
         grad_Ws.append(grad_W)
         for idx in range(num_layers-2, -1, -1):
-            # TODO 5: Calculate grad_b and grad_W, which are lists of gradients for b's and w's of each layer. 
+            # TODO 5: Calculate grad_bs and grad_Ws, which are lists of gradients for b's and w's of each layer. 
             # Take a look at the update step if you are not sure about the format.
             #1. Iteratively update grad
             raise NotImplementedError("Update grad")
@@ -75,14 +75,14 @@ class NN:
         grad_bs, grad_Ws = grad_bs[::-1], grad_Ws[::-1] # Reverse the gradient lists
         return training_loss, grad_Ws, grad_bs
 
-    def update(self, grad_W, grad_b, learning_rate):
+    def update(self, grad_Ws, grad_bs, learning_rate):
         # Update the weights and biases
-        num_layers = len(grad_W)
+        num_layers = len(grad_Ws)
         ws = self.weights
         bs = self.biases
         for idx in range(num_layers):
-            ws[idx] -= (grad_W[idx] * learning_rate)
-            bs[idx] -= (grad_b[idx] * learning_rate)
+            ws[idx] -= (grad_Ws[idx] * learning_rate)
+            bs[idx] -= (grad_bs[idx] * learning_rate)
         self.weights = ws
         self.biases = bs
         return 
