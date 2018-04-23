@@ -43,8 +43,10 @@ class NN:
         D_stack.append(D)
         num_layers = len(ws)
         for idx in range(num_layers-1):
-            #TODO 4: Implement forward pass to get Yhat (which is similar to self.predit) 
-            # Calculate D, which can be done in one line
+            # TODO 2: Calculate D (D_k in the tutorial) for forward pass (which is similar to self.predit). 
+            # This intermediate results to will then be stored to D_stack.
+
+            ### YOUR CODE HERE ###
             raise NotImplementedError("Calculate D")
             D_stack.append(D)
 
@@ -61,13 +63,22 @@ class NN:
         grad_bs.append(grad_b)
         grad_Ws.append(grad_W)
         for idx in range(num_layers-2, -1, -1):
-            # TODO 5: Calculate grad_bs and grad_Ws, which are lists of gradients for b's and w's of each layer. 
-            # Take a look at the update step if you are not sure about the format.
-            #1. Iteratively update grad
+            # TODO 3: Calculate grad_bs and grad_Ws, which are lists of gradients for b's and w's of each layer. 
+            # Take a look at the update step if you are not sure about the format. Notice that we first store the
+            # gradients for each layer in a reversed order. The two lists are reversed before returned.
+
+            #1. Update grad for the current layer (G_k in the tutorial)
+
+            ### YOUR CODE HERE ###
             raise NotImplementedError("Update grad")
-            #2. Calculate grad_b (gradient of b of the current layer)
+
+            #2. Calculate grad_b (gradient with respect to b of the current layer)
+
+            ### YOUR CODE HERE ###
             raise NotImplementedError("Calculate grad_b")
-            #3. Calculate grad_W (gradient of W of the current layer)
+            #3. Calculate grad_W (gradient with respect to W of the current layer)
+
+            ### YOUR CODE HERE ###
             raise NotImplementedError("Calculate grad_W")
             grad_bs.append(grad_b)
             grad_Ws.append(grad_W)
@@ -146,7 +157,9 @@ class SquaredLoss(LossFunction):
         The true values are in the vector Y; the predicted values are
         in Yhat; compute the loss associated with these predictions.
         """
-        #TODO 0: loss function for squared loss.
+        # TODO 0: loss function for squared loss.
+
+        ### YOUR CODE HERE ###
         raise NotImplementedError("Implement SquaredLoss.")
 
     def lossGradient(self, Y, Yhat):
@@ -155,6 +168,8 @@ class SquaredLoss(LossFunction):
         Yhat; compute the gradient of the loss with respect to Yhat
         """
         #TODO 1: gradient for squared loss.
+
+        ### YOUR CODE HERE ###
         raise NotImplementedError("Implement SquaredLoss.")
 
 
@@ -164,7 +179,9 @@ class CELoss(LossFunction):
         The true values are in the vector Y; the predicted values are
         in Yhat; compute the loss associated with these predictions.
         """
-        #TODO 2: loss function for cross-entropy loss.
+        #TODO 4: loss function for cross-entropy loss.
+
+        ### NOT REQUIRED FOR THIS PROJ, YOU CAN DO IT FOR FUN ###
         raise NotImplementedError("Implement CELoss.")
 
     def lossGradient(self, Y, Yhat):
@@ -173,5 +190,7 @@ class CELoss(LossFunction):
         Yhat; compute the gradient of the loss with respect to Yhat, which
         has the same shape of Yhat and Y.
         """
-        #TODO 3: gradient for cross-entropy loss.
+        #TODO 5: gradient for cross-entropy loss.
+
+        ### NOT REQUIRED FOR THIS PROJ, YOU CAN DO IT FOR FUN ###
         raise NotImplementedError("Implement CELoss")
